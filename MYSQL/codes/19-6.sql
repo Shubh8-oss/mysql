@@ -28,9 +28,9 @@ offset 1*/
 as no_of_people
 from staff
 group by gender*/
-select count(tname) as value
+/*select count(tname) as value
 from staff
-where doj is null
+where doj is null*/
 
 
 

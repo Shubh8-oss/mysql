@@ -41,6 +41,17 @@ v. Group By :  The Group by clause is used to group the rows based on one or mor
      Agreegate Functions: These functions are used to perform mathematical operation on group of rows
       i. count(): count is used to count the number of rows in each group
        WAQ to print number of males and females in staff table
+      ii. sum(): sum is used to calculate the sum of values in each group
+      WAQ to print total salaries of male and female staff in staff table
+      iii. avg() : avg is used to calculate the avaerage of values in each group
+      WAQ to print average salaries of male and female staff in staff table
+      iv. max(): max is used to print maximum value in a column
+      v. min(): min is used to print minimum value in a column
+
+   vi. having : it is used to filter after grouping or agrregating the data
+   it is mostly used with conditions that are invovled agrregate functions
+SELECT country, count(country) FROM Customers where country like 'U%' group by country  having count(country)>10;
+
 
 
 

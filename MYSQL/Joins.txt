@@ -1,0 +1,9 @@
+Joins: Joins are used to combine multiple tables such that the result of the query retrieved from both the tables. There are different types of Joins
+   i. inner Join
+   ii. Left Join
+   iii. right Join
+   iv. Full Outer Join
+   v. cross Join
+   vi. Self Join
+
+i. Inner Join : Inner Join is used to retrieve common data between the tables

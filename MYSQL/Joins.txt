@@ -57,6 +57,87 @@ ON t1.customer_id= t2.customer_id
 group by t2.item
 
 
+cross join: A cross Join returns the cartesian product of two tables with each row of one table combined with each row of other table
+eg: we have two tables
+id    color
+1     red
+2     blue
+3     green
+
+id   shape
+1    round
+2    square
+3    triangle
+
+select t1.color, t2.shape
+from Colors as t1
+cross join Shapes as t2
+
+color    shape
+red      round
+red      square
+red      triangle
+blue     round
+blue     square
+blue     triangle
+Green    round
+Green    square
+Green    triangle
+
+
+self join:  A self join is a join operation  where a table is joined to itself
+as if it were two tables
+
+employees
+   eid     ename     m_id
+   101    john        103
+   102    raj         103
+   103    priya       104
+   104    prasad      null
+
+    eid     ename     m_id
+   101    john        103
+   102    raj         103
+   103    priya       104
+   104    prasad      null
+
+   print ename with managers names
+
+   select t1.ename,t2.ename
+   from employees as t1
+   inner join
+   employees as t2
+   ON t1.m_id=t1.id
+
+ employees
+   eid  ename  department
+   1    john    sales
+   2    swathi  sales
+   3    rani    HR
+   4    Mike    sales
+
+
+   can you find pairs of same department
+  select t1.ename, t2.ename
+  from employees as t1
+  inner join
+  employees as t2
+  ON t1.department=t2.department and t1.eid<t2.eid
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

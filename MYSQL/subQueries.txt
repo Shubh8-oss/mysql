@@ -1,0 +1,22 @@
+Sub Queries:  A subQuery is a Query nested inside another query.The inner query(subquery) returns a set of rows which are used by outer query. 
+There are different types of sub Queries
+  1. single row sub query : 
+     here subquery will return only one row
+
+  2. multi row sub query :
+      here subquery will return multiple rows
+  
+  3. Correlated sub query :
+      here references the outer query and re execute for each row
+
+1. single row sub query:
+-- list the employee name whose age 
+-- is greater than average
+use school;
+select tname
+from staff
+where age > (select avg(age)
+from staff)
+
+
+ii. multi roe sub query:

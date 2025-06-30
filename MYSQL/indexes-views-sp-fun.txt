@@ -25,4 +25,39 @@ query
 
 drop view viewname
 
+Stored Procedures: A stored Procedure is a set of SQL statements that can be executed repeatedly. it improves security, performance and code reusability
+
+create Procedure Procedurename(IN parameters)
+begin
+   query
+end
+
+call Procedurename(parameters)
+delimiter //
+create procedure getByName
+(in n varchar(20),)
+begin
+  select *
+  from staff
+  where tname=n;
+end //
+
+call getByName("Raju");
+
+functions: functions are also used for reusability but function must return a value. usually functions are used for calculations
+
+create function functionnae(parameters) returns datatype
+ begin
+    query
+  return value;
+ end
+
+ select functionname //calling
+
+
+ 
+
+
+
+
 

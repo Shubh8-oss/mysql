@@ -14,5 +14,6 @@ MYSQL
    SUB QUERIES
    INDEXES, VIEWS,STORED PROCEDURES, FUNCTIONS
    TRIGGERS
-   DCL, TCL, ACID
+   DCL, TCL, 
+   ACID, normalization;
    PROJECT  (Data Analaysis and Visualization)

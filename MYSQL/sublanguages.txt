@@ -52,8 +52,8 @@ Database Design in MySQL:
 
         after 1NF
                           sno      name          city        state    country
-                           1       PRASAD    HYD     TS        India
-                           2        John            warangal TS       India
+                           1       PRASAD         HYD     TS        India
+                           2        John          warangal TS       India
 
     2NF:  it should meet 1NF  and no dependency between non key columns. All columns should depend primary key
      eg:  sid   sname    cid    cname   staff_name
@@ -74,8 +74,8 @@ Database Design in MySQL:
               102     react      126              126    John               2323232
 
 
-
-
+BCNF(Boyce codd Normal Form):
+   it ensures that table is in 3NF and Every determinent must be a candidate key
 
 
 

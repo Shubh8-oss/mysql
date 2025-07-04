@@ -1,0 +1,24 @@
+Operators in MongoDB: MongoDB provides various operators to perform Queries like updates, insertion, deletion or data retrieval.
+Most used operators are:
+  $eq -- checks for whether key is equal to specific value or not
+  $gt -- checks for whether key is greater than a specific value or not
+  $ne -- checks for whether field is not equal to specific value or not
+  $lt -- checks for less than
+  $gte -- checks for greater than or equals
+  $lte -- chekcs for less than or equals
+  $in  -- matches the value in given array
+  $nin -- matches the value in give array for not condition
+
+
+  $and -- it is used to match all conditions and return matched documents
+  $or  -- it return documents that matches either of conditions
+  $nor -- returns all documents that don't match the conditions
+  $not -- returns all documets that dont match condition
+
+  $set -- set the value of a field
+  $unset -- removes a field
+  $inc -- increments the value of field
+
+  $exists -- matches documets with a specific field
+
+  

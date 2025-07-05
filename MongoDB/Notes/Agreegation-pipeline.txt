@@ -1,0 +1,14 @@
+Aggregation Pipeline : It is a powerful tool in mongodb for processing, retriveing and transforming the data.
+A Pipeline consists of multiple stages which are connected and one stage's output will be come another stage input .
+we use agreegate  function to achieve this
+  db.collectionName.aggregate([pipeline])
+
+  stages: Some common stages used in aggregate are
+  1.$match: filters the documents based on a condition
+  2.$project: reshapes the document by adding, removing or renaming fields
+  3.$sort: sort the documents based on a specific field
+  4.$limit:  limits the documents with a number to the next stage
+  5.$skip : skips the documets with a number to the next stage
+  6.$group : groups the documents based on a specific field
+  7. $lookup : used to combine with another collection documents
+  8. $unwind: separates a listed field along with document values

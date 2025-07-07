@@ -12,3 +12,108 @@ we use agreegate  function to achieve this
   6.$group : groups the documents based on a specific field
   7. $lookup : used to combine with another collection documents
   8. $unwind: separates a listed field along with document values
+
+
+  $match:  suppose we want all the products in the 'electronics' category
+   db.products.aggregate([{$match:{category:"electronics"}}])
+
+  $project: suppose we want only title,price and category in the above data
+db.products.aggregate([{$match:{category:"electronics"}},{$project:{
+  title:1,price:1,category:1,_id:0
+}}])
+
+task: print titles only for all "jewelery" products
+
+$sort: suppose i want all titles of jewelery in ascending order
+db.products.aggregate([
+  {$match:{category:"jewelery"}},
+  {$project:{title:1,_id:0}},
+  {$sort:{title:1}}])
+1 represents here ascending or alphabetical order and -1 represents descending order
+
+ $limit: suppose i want  top 3 titles of jewellery in ascending order
+db.products.aggregate([
+  {$match:{category:"jewelery"}},
+  {$project:{title:1,_id:0}},
+  {$sort:{title:1}},
+  {$limit:3}]);
+
+ $skip: suppose we don't want first value and want to retrive next 3 titles after first of jewelery in ascending order
+ db.products.aggregate([
+  {$match:{category:"jewelery"}},
+  {$project:{title:1,_id:0}},
+  {$sort:{title:1}},
+  {$skip:1},
+  {$limit:3}]);
+
+ $group: group is used to combine the documents based on a field and apply sum default agreegate operators such as $sum,$count,$min,$max,$avg
+ The grouping field is considered as '_id' (unique value)
+   $group({_id:"$fieldname"})
+  suppose i want to group all products based on category
+  db.products.aggregate([{$group:{_id:"$category"}}])
+
+   suppose i want to print all products based on each category with their count
+ db.products.aggregate([{$group:{_id:"$category",value:{$count:{}}}}])
+
+ suppose i want sum of prices based on category
+  db.products.aggregate([
+    {$group:{
+      _id:"$category",
+      value:{$sum:"$price"}
+      }
+    }])
+ suppose i want avg of prices based on category
+  db.products.aggregate([
+    {$group:{
+      _id:"$category",
+      value:{$avg:"$price"}
+      }
+    }])
+  suppose i want max price and min price based on category
+db.products.aggregate([
+    {$group:{
+      _id:"$category",
+      maxValue:{$max:"$price"},
+      minValue:{$min:"$price}
+      }
+    }])
+
+  $lookup: it is used to join multiple documents, then we can use $lookup
+   db.collectionName.aggregate([
+    {
+      $lookup:{
+        from : "foreign collection",
+        localField: "localField name"
+        foreignField : "foreign field name"
+        as : "new field name"
+      }
+    }
+   ])
+
+  db.products.aggregate([
+    {
+      $lookup:{
+        from:"cat",
+        localField:"category",
+        foreignField:"cat",
+        as : "newcollection"
+      }
+    }
+  ])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

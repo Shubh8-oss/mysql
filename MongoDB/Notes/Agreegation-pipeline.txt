@@ -46,7 +46,7 @@ db.products.aggregate([
   {$skip:1},
   {$limit:3}]);
 
- $group: group is used to combine the documents based on a field and apply sum default agreegate operators such as $sum,$count,$min,$max,$avg
+ $group: group is used to combine the documents based on a field and apply some default agreegate operators such as $sum,$count,$min,$max,$avg
  The grouping field is considered as '_id' (unique value)
    $group({_id:"$fieldname"})
   suppose i want to group all products based on category
@@ -102,8 +102,18 @@ db.products.aggregate([
   ])
 
 
-
-
+$unwind: it is used to deconstruct an array field into separate documents. it allows us to process each document individually
+db.collectionName.aggregate([
+  {
+    $unwind:"$arrayField"
+  }
+])
+suppose i want to separate subjects in teachers collection
+db.teachers.aggregate([
+  {
+    $unwind:"$subjects"
+  }
+])
 
 
 
